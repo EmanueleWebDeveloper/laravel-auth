@@ -11,17 +11,17 @@
             </svg>
         </div>
         <h1 class="display-5 fw-bold">
-            Welcome to Laravel+Bootstrap 5
+            Welcome to ProjectHub
         </h1>
 
-        <p class="col-md-8 fs-4">This a preset package with Bootstrap 5 views for laravel projects including laravel breeze/blade. It works from laravel 9.x to the latest release 10.x</p>
+        <p class="col-md-8 fs-4">Benvenuto a ProjectHub, il luogo ideale dove puoi dare vita alle tue idee e condividerle con il mondo intero! ProjectHub è una piattaforma innovativa e creativa che ti permette di caricare, gestire e presentare i tuoi progetti in modo intuitivo e accattivante.</p>
         <a href="https://packagist.org/packages/pacificdev/laravel_9_preset" class="btn btn-primary btn-lg" type="button">Documentation</a>
     </div>
 </div>
 
 <div class="content">
     <div class="container">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora temporibus, dicta nemo aliquam totam nisi deserunt soluta quas voluptatum ab beatae praesentium necessitatibus minus, facilis illum rerum officiis accusamus dolores!</p>
+        <p>Riservatezza dei dati: ProgettoHub rispetta la tua privacy e si impegna a proteggere le informazioni personali che ci fornisci. Utilizziamo le tue informazioni solo per fornire i servizi richiesti e migliorare la tua esperienza sul nostro sito. Non condivideremo, venderemo o affitteremo mai le tue informazioni personali a terzi senza il tuo consenso esplicito. Tutti i dati raccolti sono gestiti in conformità con le leggi sulla privacy vigenti. Per ulteriori dettagli sulle nostre pratiche di gestione dei dati, consulta la nostra Politica sulla privacy</p>
     </div>
 </div>
 @endsection
