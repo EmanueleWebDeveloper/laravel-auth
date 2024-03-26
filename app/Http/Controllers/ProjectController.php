@@ -58,6 +58,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+        // dd($project->toArray());
         return view('pages.edit', compact('project'));
     }
 
