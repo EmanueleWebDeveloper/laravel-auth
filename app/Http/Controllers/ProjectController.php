@@ -68,7 +68,9 @@ class ProjectController extends Controller
     {
         $validated_data = $request->validated();
         $slug = Project::generateSlug($request->title);
+
         $validated_data['slug'] = $slug;
+
         $project->update($validated_data);
         return redirect()->route('dashboard.project.index');
     }
