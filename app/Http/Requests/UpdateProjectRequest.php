@@ -24,7 +24,7 @@ class UpdateProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required',Rule::unique(Project::class)->ignore($this->project), 'max:64'],
+            'title' => ['required',Rule::unique(Project::class)->ignore($this->project), 'max:64'],  //Project sarebbe il nome del database "projects" che con questa formula lo trasforma in automatico e con ignore nel momento in cui lo si modifica "ignora" unique del titolo potendo riscrivere lo stesso title.
             'description' => ['nullable'],
             'cover' => ['nullable'],
             'content' => ['nullable'],
