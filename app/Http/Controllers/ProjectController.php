@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use Illuminate\Support\Facades\Storage;
 
 use function PHPUnit\Framework\returnSelf;
 
@@ -36,8 +37,18 @@ class ProjectController extends Controller
         $validated_data = $request->validated();
 
         $slug = Project::generateSlug($request->title);
-
         $validated_data['slug'] = $slug;
+
+
+        //gestione immagine
+        if( $request->hasFile('cover') ){
+
+            $path = Storage::disk('public')->put( 'project_images', $request->cover );
+
+
+            $validated_data['cover'] = $path;
+            // dd($validated_data, $path);
+        }
 
         $new_project = Project::create($validated_data);
 
@@ -69,8 +80,17 @@ class ProjectController extends Controller
     {
         $validated_data = $request->validated();
         $slug = Project::generateSlug($request->title);
-
         $validated_data['slug'] = $slug;
+
+        if($request->hasFile('cover')){
+            if($project->cover){
+                Storage::delete($project->cover);
+            }
+
+            $path = Storage::disk('public')->put('project_images', $request->cover);
+
+            $validated_data['cover'] = $path;
+        }
 
         $project->update($validated_data);
         return redirect()->route('dashboard.project.index');
@@ -81,6 +101,11 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+
+        if($project->cover){
+            Storage::delete($project->cover);
+        }
+
         $project->delete();
         return redirect()->route('dashboard.project.index');
     }
