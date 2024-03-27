@@ -25,6 +25,7 @@
             <div class="card">
                 <img src="{{ $item->cover }}" class="card-img-top" alt="{{ $item->title }}">
                 <div class="card-body">
+
                     <h5 class="card-title">{{ $item->title }}</h5>
 
                     <div class="accordion" id="accordion{{ $item->id }}">
