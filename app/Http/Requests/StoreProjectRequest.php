@@ -26,7 +26,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'title' => ['required', Rule::unique(Project::class), 'max:64'],
             'description' => ['nullable'],
-            'cover' => ['nullable'],
+            'cover' => ['nullable','image'],
             'content' => ['nullable'],
 
         ];

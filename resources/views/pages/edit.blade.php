@@ -3,7 +3,7 @@
     <div class="container">
         <h1 class="mt-2 fw-bold">Edit the project:</h1>
 
-        <form action="{{ route('dashboard.project.index', $project->id) }}" method="project" enctype="multipart/form-data">
+        <form action="{{ route('dashboard.project.update', $project->id) }}" method="post" enctype="multipart/form-data">
 
             @csrf
             @method('PUT')

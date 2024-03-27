@@ -78,16 +78,20 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
+        // dd($project->cover);
         $validated_data = $request->validated();
         $slug = Project::generateSlug($request->title);
         $validated_data['slug'] = $slug;
 
-        if($request->hasFile('cover')){
+        if($validated_data['cover']){
             if($project->cover){
-                Storage::delete($project->cover);
+              $checkdelete=Storage::delete($project->cover);
+              if(!$checkdelete){
+                dd($project->cover,'non sono riuscito a cancellare');
+              }
             }
-
-            $path = Storage::disk('public')->put('project_images', $request->cover);
+            // dd($validated_data['cover']);
+            $path = Storage::put('project_images', $validated_data['cover']);
 
             $validated_data['cover'] = $path;
         }
